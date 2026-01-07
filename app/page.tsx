@@ -1,66 +1,52 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Link from "next/link"
+import { Box, Button, Center, Heading, Stack, Text, Flex } from "@fidely-ui/react"
+import { FaGithub } from "react-icons/fa6"
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
+    <Box
+      as="section"
+      position="relative"
+      height="auto"
+    >
+      <Center height="85vh">
+        <Stack gap="6" textAlign="center" maxWidth="900px">
+          <Heading size={{ base: "4xl", md: "5xl", lg: "6xl" }} fontWeight="semibold" lineHeight="1.4em">
+            Build <Text as="span" color="colorPalette.default"> modern</Text> apps with speed and flexibility
+          </Heading>
+          <Text fontSize={{ base: "md", lg: "xl" }} color="fg.muted">
+            UI library for modern React apps
+          </Text>
+          <Flex justify="center" gap={4} flexDirection={{ base: "column", md: "row" }}>
+            <Button size="lg" colorScheme="blue" asChild>
+              <Link href="https://fidely-ui.vercel.app" target="_blank" rel="noopener noreferrer">
+                Documentation
+              </Link>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              colorPalette="gray"
+              asChild
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
+              <Link href="https://github.com/fidely-ui/fidely-ui" target="_blank" rel="noopener noreferrer">
+                Github <FaGithub />
+              </Link>
+            </Button>
+          </Flex>
+          <Center mt="3">
+            <Box  
+              p="2.5" 
+              rounded="s2"
+              borderWidth="1px"
+              borderStyle="solid"
+              borderColor="border.disabled"
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+             <Text>Get started by editing <Text as="span" ml="1.5" bg="colorPalette.5" p="1.5" rounded="s2">app/page.tsx</Text> </Text>
+            </Box>
+          </Center>
+        </Stack>
+      </Center>
+    </Box>
   );
 }
