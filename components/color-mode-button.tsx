@@ -1,11 +1,9 @@
 "use client"
 
 import { useTheme } from "next-themes"
-import { ClientOnly, IconButton, Skeleton } from "@fidely-ui/react"
+import { ClientOnly, Icon, IconButton, Skeleton } from "@fidely-ui/react"
 import { FaMoon } from "react-icons/fa"
 import { IoSunnyOutline } from "react-icons/io5"
-
-import { Icon } from "~/components/icon"
 
 export const ColorModeButton = () => {
   const { theme, setTheme } = useTheme()

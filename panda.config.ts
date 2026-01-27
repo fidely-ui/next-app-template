@@ -14,8 +14,9 @@ export default defineConfig({
 
   // Where to look for your css declarations
   include: [
-    './app/**/*.{js,jsx,ts,tsx}',
-    './components/**/*.{js,jsx,ts,tsx}',
+    "./app/**/*.{js,jsx,ts,tsx}",
+    "./components/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/@fidely-ui/react/dist/panda.buildinfo.json"
   ],
 
   // Files to exclude
@@ -27,22 +28,21 @@ export default defineConfig({
   },
 
   staticCss: {
-    recipes: '*',
+    recipes: "*",
   },
 
-  importMap: '@fidely-ui/styled-system',
   // The output directory for your css system
   outdir: "styled-system",
 
-  jsxFramework: 'react',
+  jsxFramework: "react",
 
   plugins: [
     {
-      name: 'panda-headless-colors',
+      name: "panda-headless-colors",
       hooks: {
-        'preset:resolved': ({ utils, preset, name }) => {
-          if (name === '@pandacss/preset-panda') {
-            return utils.omit(preset, ['theme.tokens.colors', 'theme.semanticTokens.colors'])
+        "preset:resolved": ({ utils, preset, name }) => {
+          if (name === "@pandacss/preset-panda") {
+            return utils.omit(preset, ["theme.tokens.colors", "theme.semanticTokens.colors"])
           }
           return preset
         }
